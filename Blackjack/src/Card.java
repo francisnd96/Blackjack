@@ -1,25 +1,29 @@
 
 public class Card {
-	
-	
+
 	private Suit mySuit;
-	
+
 	private int myNumber;
-	
-	public Card(Suit aSuit, int aNumber){
-		
+
+	public Card(Suit aSuit, int aNumber) {
+
 		this.mySuit = aSuit;
-		this.myNumber = aNumber;
-		
+		if (aNumber >= 1 && aNumber <= 13) {
+			this.myNumber = aNumber;
+		} else {
+			System.err.println("not valid");
+			System.exit(1);
+		}
+
 	}
-	
-	public int getNumber(){
+
+	public int getNumber() {
 		return myNumber;
 	}
 
-	public String toString(){
-		String cards[] = new String [14];
-		cards[0] =  "Ace";
+	public String toString() {
+		String cards[] = new String[14];
+		cards[0] = "Ace";
 		cards[1] = "One";
 		cards[2] = "Two";
 		cards[3] = "Three";
@@ -33,7 +37,7 @@ public class Card {
 		cards[11] = "Jack";
 		cards[12] = "Queen";
 		cards[13] = "King";
-		
+
 		return cards[myNumber] + " of " + mySuit.toString();
 	}
 }
